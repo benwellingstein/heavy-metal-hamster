@@ -5,75 +5,41 @@
     box-sizing: border-box;
 }
 
-/* Body Styling - Heavy Metal Theme */
+/* Body Styling */
 body {
     font-family: 'Metal Mania', sans-serif;
-    background: url('https://example.com/rock_background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+    background: #000;
+    color: white;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     overflow: hidden;
-    animation: darkSmoke 5s ease-in-out infinite;
+    position: relative;
 }
 
 /* Slideshow Container */
 .slideshow-container {
     position: relative;
-    width: 80%;
-    max-width: 900px;
-    height: 70%;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
-    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    backdrop-filter: blur(10px);
-    border: 2px solid #ff4500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-/* Slideshow Animations */
-.mySlides {
-    display: none;
-}
-
-.ascii-hamster {
-    font-size: 45px;
+/* Rabbit styling - Random Sizes and Animations */
+.rabbit {
+    position: absolute;
+    font-size: 40px;
     line-height: 1.4;
-    color: #fff;
+    color: white;
     text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff4500;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    transition: transform 0.3s ease;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    transform-origin: center;
 }
 
-/* Heavy Metal Animations */
-.spin {
-    animation-name: spin;
-}
-
-.bounce {
-    animation-name: bounce;
-}
-
-.scale {
-    animation-name: scaleInOut;
-}
-
-/* Spin Animation */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(36000deg);
-    }
-}
-
-/* Bounce Animation */
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -92,7 +58,15 @@ body {
     }
 }
 
-/* Scale In and Out Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes scaleInOut {
     0% {
         transform: scale(0.5);
@@ -105,14 +79,7 @@ body {
     }
 }
 
-/* Glowing Effect for the Button */
-@keyframes glowing {
-    0% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
-    50% { box-shadow: 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347; }
-    100% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
-}
-
-/* Troll Button Styling */
+/* Troll Button */
 .troll-button {
     position: absolute;
     bottom: 20px;
@@ -128,7 +95,6 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: glowing 1.5s infinite alternate;
-    font-family: 'Metal Mania', sans-serif;
 }
 
 .troll-button:hover {
@@ -141,10 +107,17 @@ body {
     transform: scale(0.98);
 }
 
-/* Responsive Design */
+/* Glowing Effect for the Button */
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
+    50% { box-shadow: 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347; }
+    100% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .ascii-hamster {
-        font-size: 35px;
+    .rabbit {
+        font-size: 30px;
     }
 
     .troll-button {
@@ -154,26 +127,13 @@ body {
 }
 
 @media (max-width: 480px) {
-    .ascii-hamster {
-        font-size: 30px;
+    .rabbit {
+        font-size: 25px;
     }
 
     .troll-button {
         font-size: 16px;
         padding: 12px 25px;
-    }
-}
-
-/* Dark Smoke Animation */
-@keyframes darkSmoke {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
     }
 }
 

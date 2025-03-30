@@ -1,61 +1,47 @@
-let slideIndex = 0;
+// Function to generate random rabbits
+function createRabbit() {
+    const rabbit = document.createElement('div');
+    rabbit.classList.add('rabbit');
+    rabbit.innerHTML = `
+      (\(\ 
+     ( -.-)
+     o_(")(")
+    `;
 
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    let hamsters = document.getElementsByClassName("ascii-hamster");
+    // Random size
+    const randomSize = Math.random() * (70 - 30) + 30; // Random size between 30px and 70px
+    rabbit.style.fontSize = `${randomSize}px`;
 
-    // Reset all slides' animations
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-        hamsters[i].classList.remove('spin', 'bounce', 'scale');
-    }
+    // Random position
+    const randomX = Math.random() * window.innerWidth;
+    const randomY = Math.random() * window.innerHeight;
 
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
+    rabbit.style.left = `${randomX}px`;
+    rabbit.style.top = `${randomY}px`;
 
-    // Display the current slide
-    slides[slideIndex-1].style.display = "block";  
+    // Random animation (bounce, spin, scale)
+    const animations = ['bounce', 'spin', 'scaleInOut'];
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
 
-    // Apply the animation based on the slide index
-    if (slideIndex === 1) {
-        hamsters[slideIndex-1].classList.add('spin');
-    } else if (slideIndex === 2) {
-        hamsters[slideIndex-1].classList.add('bounce');
-    } else if (slideIndex === 3) {
-        hamsters[slideIndex-1].classList.add('scale');
-    }
+    rabbit.style.animationName = randomAnimation;
+    rabbit.style.animationDuration = `${Math.random() * 5 + 3}s`; // Random duration between 3s and 8s
+    rabbit.style.animationIterationCount = 'infinite';
 
-    // Change slide every 4 seconds
-    setTimeout(showSlides, 4000);
+    document.querySelector('.slideshow-container').appendChild(rabbit);
 }
 
-showSlides();
+// Function to continuously create new rabbits
+setInterval(createRabbit, 1000);
 
-// Function to move the button when mouse is over it
-function moveButton(event) {
-    let button = document.querySelector('.troll-button');
+// Move button away when mouse is over
+const trollButton = document.querySelector('.troll-button');
+trollButton.addEventListener('mouseover', () => {
+    const maxX = window.innerWidth - trollButton.offsetWidth;
+    const maxY = window.innerHeight - trollButton.offsetHeight;
 
-    // Get random position for the button, avoiding the mouse area
-    let maxX = window.innerWidth - button.offsetWidth;
-    let maxY = window.innerHeight - button.offsetHeight;
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
-    let randomX, randomY;
-
-    // Ensure the button stays away from the mouse cursor
-    do {
-        randomX = Math.floor(Math.random() * maxX);
-        randomY = Math.floor(Math.random() * maxY);
-    } while (
-        Math.abs(event.clientX - randomX) < 150 && // Ensure the button is 150px away from the mouse
-        Math.abs(event.clientY - randomY) < 150
-    );
-
-    // Quickly move the button to the new random position
-    button.style.transition = 'all 0.1s ease-out';  // Speed up the transition
-    button.style.left = randomX + 'px';
-    button.style.top = randomY + 'px';
-}
-
-// Add event listener for mouseover event
-document.querySelector('.troll-button').addEventListener('mouseover', moveButton);
-
+    trollButton.style.left = `${randomX}px`;
+    trollButton.style.top = `${randomY}px`;
+});

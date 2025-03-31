@@ -1,20 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const header = document.querySelector(".header");
-    header.style.opacity = "0";
-    header.style.transform = "translateY(-50px)";
-    setTimeout(() => {
-        header.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
-        header.style.opacity = "1";
-        header.style.transform = "translateY(0)";
-    }, 500);
+document.addEventListener("DOMContentLoaded", () => {
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
 
-    const links = document.querySelectorAll(".nav a");
-    links.forEach(link => {
-        link.addEventListener("mouseover", function() {
-            link.style.textShadow = "0 0 10px #d4af37";
-        });
-        link.addEventListener("mouseout", function() {
-            link.style.textShadow = "none";
-        });
+    function showSlide(i) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[i].classList.add("active");
+    }
+
+    function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+
+    prevBtn.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
     });
+
+    showSlide(index);
+
+    // Auto-rotate every 4 seconds
+    setInterval(nextSlide, 4000); // Auto-rotation speed
 });

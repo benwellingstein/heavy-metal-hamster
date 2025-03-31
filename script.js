@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(index);
     }
 
-    nextBtn.addEventListener("click", nextSlide);
-
     prevBtn.addEventListener("click", () => {
         index = (index - 1 + slides.length) % slides.length;
         showSlide(index);
     });
+
+    nextBtn.addEventListener("click", nextSlide);
 
     showSlide(index);
 

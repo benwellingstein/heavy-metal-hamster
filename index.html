@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Lederhosen</title>
+
+    <!-- Preload CSS to avoid FOUC -->
+    <link rel="preload" href="styles.css" as="style">
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+
+    <!-- Preload Google Fonts (Optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,7 +21,7 @@
     <section class="carousel">
         <div class="carousel-container">
             <img src="https://raw.githubusercontent.com/benwellingstein/heavy-metal-hamster/refs/heads/main/Lederhosen1.png" alt="Lederhosen 1" class="slide active">
-            <img src="https://raw.githubusercontent.com/benwellingstein/heavy-metal-hamster/refs/heads/main/Lederhosen1.png" alt="Lederhosen 2" class="slide">
+            <img src="https://raw.githubusercontent.com/benwellingstein/heavy-metal-hamster/refs/heads/main/Lederhosen2.png" alt="Lederhosen 2" class="slide">
             <img src="https://raw.githubusercontent.com/benwellingstein/heavy-metal-hamster/refs/heads/main/Lederhosen3.png" alt="Lederhosen 3" class="slide">
         </div>
         <button class="prev">&#10094;</button>
@@ -33,5 +39,8 @@
             a testament to the artistry of generations past, infused with the soul of the Alps.
         </p>
     </section>
+
+    <!-- Defer JavaScript -->
+    <script defer src="script.js"></script>
 </body>
 </html>

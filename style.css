@@ -4,6 +4,11 @@ html, body {
     height: 100%; /* Ensure body and html take full height */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
+    visibility: hidden; /* Initially hide the content until fully loaded */
+}
+
+body.loaded {
+    visibility: visible; /* Make the body visible once it's loaded */
 }
 
 body {

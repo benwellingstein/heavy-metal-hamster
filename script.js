@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Add 'loaded' class to the body after the DOM is fully loaded
+    document.body.classList.add("loaded");
+
     let index = 0;
     const slides = document.querySelectorAll(".slide");
     const nextBtn = document.querySelector(".next");

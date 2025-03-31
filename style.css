@@ -1,138 +1,45 @@
-/* General Reset */
-* {
+body {
+    font-family: 'Georgia', serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: 'Metal Mania', sans-serif;
-    background: #000;
-    color: white;
+    background-color: #1a1a1a;
+    color: #e0c28d;
     text-align: center;
-    overflow: hidden;
-    position: relative;
 }
 
-/* Slideshow Container */
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.header {
+    background: linear-gradient(to right, #654321, #2a1a0a);
+    padding: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 5px solid #d4af37;
 }
 
-/* Rabbit styling - Random Sizes and Animations */
-.rabbit {
-    position: absolute;
-    font-size: 40px;
-    line-height: 1.4;
-    color: white;
-    text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff4500;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    transform-origin: center;
+.nav {
+    margin: 20px 0;
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-30px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    75% {
-        transform: translateY(-15px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.nav a {
+    color: #e0c28d;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.nav a:hover {
+    color: #d4af37;
 }
 
-@keyframes scaleInOut {
-    0% {
-        transform: scale(0.5);
-    }
-    50% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(1);
-    }
+.product-showcase img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Troll Button */
-.troll-button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px 40px;
-    font-size: 24px;
-    background: linear-gradient(135deg, #ff4500, #ff6347);
-    color: white;
-    border: 2px solid #fff;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: glowing 1.5s infinite alternate;
-}
-
-.troll-button:hover {
-    background: linear-gradient(135deg, #ff6347, #ff4500);
-    transform: scale(1.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-}
-
-.troll-button:active {
-    transform: scale(0.98);
-}
-
-/* Glowing Effect for the Button */
-@keyframes glowing {
-    0% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
-    50% { box-shadow: 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347; }
-    100% { box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500; }
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .rabbit {
-        font-size: 30px;
-    }
-
-    .troll-button {
-        font-size: 20px;
-        padding: 15px 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .rabbit {
-        font-size: 25px;
-    }
-
-    .troll-button {
-        font-size: 16px;
-        padding: 12px 25px;
-    }
+.product-showcase img:hover {
+    transform: scale(1.05);
 }

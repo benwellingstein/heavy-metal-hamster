@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+html, body {
+    height: 100%; /* Ensure body and html take full height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background: linear-gradient(135deg, #3a1c0d, #b88e6a);
+    background: linear-gradient(135deg, #3a1c0d, #b88e6a); /* This applies the gradient */
     color: white;
-    height: 100vh;
+    height: 100%; /* Ensure full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
